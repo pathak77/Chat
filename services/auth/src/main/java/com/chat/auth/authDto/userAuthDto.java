@@ -1,21 +1,19 @@
-package com.chat.user.Dto;
+package com.chat.auth.authDto;
 
 
-import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.Getter;
 
-@Data
+@Getter
+@Setter
 @Builder
-@NoArgsConstructor
-@AllArgsConstructor
-
-public class UserDto {
+public class userAuthDto {
     private long id;
     private String firstName;
     private String lastName;
     private String phoneNumber;
     private String email;
     private Object authorityList;
+
 }
