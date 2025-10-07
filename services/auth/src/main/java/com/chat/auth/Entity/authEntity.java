@@ -8,12 +8,13 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.Builder;
 
-@Entity
+
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@Entity
 public class authEntity {
 
 
@@ -21,6 +22,7 @@ public class authEntity {
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         private long id;
 
+        @Column(nullable = false, length = 20)
         private String firstName;
 
         private String lastName;
