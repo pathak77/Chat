@@ -3,6 +3,7 @@ package com.chat.auth.Controller;
 import com.chat.auth.Repository.RoleRepository;
 import com.chat.auth.Repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.RestController;
@@ -20,9 +21,9 @@ public class AuthController {
 
     @Autowired
     PasswordEncoder encoder;
-    
 
-    public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginRequest loginRequest) {
+
+    public ResponseEntity<?> loginController(@Valid @RequestBody LoginRequest loginRequest) {
 
         Authentication authentication = authenticationManager.authenticate(
             new UsernamePasswordAuthenticationToken(loginRequest.getUsername(), loginRequest.getPassword()));
@@ -41,4 +42,6 @@ public class AuthController {
             userDetails.getEmail(),
             roles));
     }
+
+
 }

@@ -16,7 +16,6 @@ public class UserMapper {
     @Autowired
     RoleRepository roleRepo;
 
-
     public UserAuthDto DtoMapper(UserEntity entity) {
 
         Set<RoleId> roleIds = entity.getRoles().stream()
