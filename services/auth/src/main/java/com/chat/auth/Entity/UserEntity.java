@@ -8,6 +8,9 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.Builder;
 
+import java.util.HashSet;
+import java.util.Set;
+
 
 @Getter
 @Setter
@@ -15,12 +18,12 @@ import lombok.Builder;
 @AllArgsConstructor
 @Builder
 @Entity
-public class authEntity {
+public class UserEntity {
 
 
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
-        private long id;
+        private long userId;
 
         @Column(nullable = false, length = 20)
         private String firstName;
@@ -40,5 +43,10 @@ public class authEntity {
         private String verificationCode;
 
         private boolean enabled=false;
+
+        @ManyToMany(fetch = FetchType.EAGER)
+        @JoinTable(name = "Roles", joinColumns =  @JoinColumn(name = "userId"))
+        private Set<RolesEntity> roles = new HashSet<>();
+
 
     }
