@@ -5,16 +5,15 @@ import lombok.Builder;
 import lombok.Setter;
 import lombok.Getter;
 
+import java.util.Set;
+
 @Getter
 @Setter
 @Builder
-
 public class UserAuthDto {
-     private long id;
-
-    private String firstName;
-    private String lastName;
+    private long id;
+    private String userName;
     private String email;
-    private Object authorityList;
+    private Set<RoleId> authorityList;
 
 }

@@ -23,19 +23,18 @@ public class UserMapper {
             .collect(Collectors.toSet());
 
         return UserAuthDto
-            .builder().firstName(entity.getFirstName())
-            .lastName( (entity.getLastName().isEmpty()?"": entity.getLastName()))
+            .builder()
+            .userName(entity.getUsername())
             .authorityList(roleIds)
             .build();
     }
 
     public UserEntity EntityMapper(UserAuthDto authDto) {
         return UserEntity
-                    .builder()
-                    .firstName(authDto.getFirstName())
-                    .lastName( (authDto.getLastName().isEmpty() ? "" : authDto.getLastName()))
-                    .email(authDto.getEmail())
-                    .build();
+            .builder()
+            .username(authDto.getUserName())
+            .email(authDto.getEmail())
+            .build();
     }
 
 }

@@ -26,13 +26,10 @@ public class UserEntity {
         private long userId;
 
         @Column(nullable = false, length = 20)
-        private String firstName;
-
-        private String lastName;
+        private String username;
 
         @JsonIgnore
         private String password;
-
 
         @Column(nullable = false,unique = true)
         private String email;

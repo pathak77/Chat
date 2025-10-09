@@ -24,5 +24,5 @@ public class RolesEntity {
     private RoleId name;
 
     @ManyToMany(fetch = FetchType.EAGER)
-     private Set<UserEntity> users = new HashSet<>();;
+    private Set<UserEntity> users = new HashSet<>();
 }
