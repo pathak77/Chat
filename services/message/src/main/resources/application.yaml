@@ -1,6 +1,13 @@
 spring:
     application:
         name: message
+    datasource:
+        url: jdbc:h2:mem:mydb
+        username: sa
+        password: password
+        driverClassName: org.h2.Driver
+    jpa:
+        database-platform: org.hibernate.dialect.H2Dialect
     h2:
         console:
             enabled: true
@@ -11,3 +18,4 @@ eureka:
             defaultZone: http://localhost:8761/eureka/
     instance:
         preferIpAddress: true
+
